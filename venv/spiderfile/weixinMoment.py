@@ -6,8 +6,11 @@ from selenium.webdriver.support import expected_conditions as ec
 from selenium.webdriver.common.by import By
 import time
 
-parm = {"platformName": "Android", "deviceName": "mbj-mi", "appPackage": "com.tencent.mm",
-        "appActivity": "ui.LauncherUI", "noReset": "True"  # 加这个参数可以免登陆，只要手机上已经登陆即可
+parm = {"platformName": "Android",
+        "deviceName": "mbj-mi", #value随便写
+        "appPackage": "com.tencent.mm",#app包名，可以上小米商店查看
+        "appActivity": "ui.LauncherUI", #通过包名查看程序的入口
+        "noReset": "True"  # 加这个参数可以免登陆，只要手机上已经登陆即可
         }
 print("login 开始")
 driver = webdriver.Remote('http://localhost:4723/wd/hub', parm)
