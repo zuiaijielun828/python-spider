@@ -8,7 +8,7 @@ import time
 
 parm = {"platformName": "Android",
         "deviceName": "mbj-mi", #value随便写
-        "appPackage": "com.tencent.mm",#app包名，可以上小米商店查看
+        "appPackage": "com.tencent.mm",#app包名，可以上小米商店查看，可以上小米商店查看 也可以使用adb logcat ActivityManager:I *:s 查看cmp=ComponentInfo{com.samsung.android.messaging/com.android.mms.ui.ConversationComposer}}分别是包名和入口
         "appActivity": "ui.LauncherUI", #通过包名查看程序的入口
         "noReset": "True"  # 加这个参数可以免登陆，只要手机上已经登陆即可
         }
@@ -40,7 +40,7 @@ def spiderMoments():
     time.sleep(3)
     driver.swipe(36, 500, 36, 125) #切换到内容位置
     #:通过appuim的日志，根据汉字内容查询标签，以及id等属性
-    names=driver.find_elements_by_id('com.tencent.mm:id/apv')
+    names=driver.find_elements_by_id('com.tencent.mm:id/apv')[:]
     contents = driver.find_elements_by_id('com.tencent.mm:id/deq')
     for i in range(len(names)):
         if i<len(names)-1:
@@ -50,7 +50,7 @@ def spiderMoments():
     for q in range(3):
         driver.swipe(18, 900, 18, 140)
         time.sleep(3)
-        names=driver.find_elements_by_id('com.tencent.mm:id/apv')
+        names=driver.find_elements_by_id('com.tencent.mm:id/apv')[:]
         contents = driver.find_elements_by_id('com.tencent.mm:id/deq')
         for i in range(len(names)):
             if i > 0:
